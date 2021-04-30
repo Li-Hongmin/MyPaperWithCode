@@ -1,10 +1,10 @@
 # My paper with code
 
-I will publish code and datasets used in my papers here.
+I will share code and datasets used in my papers here.
 
 ## To do 
 
-[ ] Divide-and-conquer based Large-Scale Spectral Clustering
+[x] Divide-and-conquer based Large-Scale Spectral Clustering
 
 [ ] Ensemble Learning for Spectral Clustering [ICMD 2020](https://doi.org/10.1109/ICDM50108.2020.00131)
 
@@ -12,4 +12,4 @@ I will publish code and datasets used in my papers here.
 
 [ ] Ensemble feature learning to identify risk factors for predicting secondary cancer [International journal of medical sciences](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6643128/)
 
-[ ] Large scale spectral clustering using sparse representation based on hubness [CBDCom 2018](https://doi.org/10.1109/SmartWorld.2018.00293)
+[x] Large scale spectral clustering using sparse representation based on hubness [CBDCom 2018](https://doi.org/10.1109/SmartWorld.2018.00293)
