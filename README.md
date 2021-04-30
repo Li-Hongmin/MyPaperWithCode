@@ -4,7 +4,7 @@ I will share code and datasets used in my papers here.
 
 ## To do 
 
-[x] Divide-and-conquer based Large-Scale Spectral Clustering
+[x] [Divide-and-conquer based Large-Scale Spectral Clustering](/DnC-SC/README.md)
 
 [ ] Ensemble Learning for Spectral Clustering [ICMD 2020](https://doi.org/10.1109/ICDM50108.2020.00131)
 
