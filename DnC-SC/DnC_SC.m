@@ -33,26 +33,16 @@ function labels = DnC_SC(fea, k, p, u, knn, maxTcutKmIters,cntTcutKmReps)
     [fea_idx, RpFea] = DnC_landmark(fea, p, 10*p, u);
 
     %% The condidate neighborhood size.
-
     Knn = 10 * knn;
     RpFeaW = distance(RpFea, RpFea);
     RpFeaW = RpFeaW + 1e100*eye(p);
     RpKnnIdx = zeros(p, Knn);
-%     RpKnnDist = RpKnnIdx;
     
     for i = 1:Knn
-%         [RpKnnDist(:,1), RpKnnIdx(:, i)] = min(RpFeaW, [], 2);
         [~, RpKnnIdx(:, i)] = min(RpFeaW, [], 2);
         temp = (RpKnnIdx(:, i) - 1) * p + (1:p)';
         RpFeaW(temp) = 1e100;
     end
-%     sigma = mean(RpKnnDist,'all');
-%     dump = exp(-RpKnnDist/(2*sigma^2));
-%     sumD = sum(dump,2);
-%     Gsdx = bsxfun(@rdivide,dump,sumD);
-%     Gidx = repmat([1:p]',1,Knn);
-%     Gjdx = RpKnnIdx;
-%     A=sparse(Gidx(:),Gjdx(:),Gsdx(:),p,p);
     clear RpFeaW temp
 
     %% partital pairwise distance matrix

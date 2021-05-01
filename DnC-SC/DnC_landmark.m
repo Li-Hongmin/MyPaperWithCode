@@ -13,9 +13,6 @@ function [label, centers] = DnC_landmark(fea, p, selectN, unit)
     maxIter = 10;
     while obtainedClusters < p
         labelNew = label;
-%         ind = sparse(labelNew, 1:n, 1, obtainedClusters, n, n);
-%         ni = full(sum(ind, 2));
-%         clear ind
         ks = full(sumD(1:obtainedClusters));
         ks = set_sub_k(ks / sum(ks) * p);
         ks(ks > unit) = unit;
@@ -41,7 +38,6 @@ function [label, centers] = DnC_landmark(fea, p, selectN, unit)
                 restIdx(indi) = ~randSample;
                 
                 % obtain centers
-%                 [selectedLabel, curCenter, curSumD] = kmeans(fea(selectedIdx, :), k, 'MaxIter', maxIter,'Start', 'uniform');
                 [selectedLabel, curCenter, ~, curSumD] = litekmeans(fea(selectedIdx, :), k, 'MaxIter', maxIter);
 
                 % insert the rest samples
@@ -56,13 +52,10 @@ function [label, centers] = DnC_landmark(fea, p, selectN, unit)
                     curSumD = curSumD + RestD' * sparse(1:restN, restLabel, 1, restN, k, restN);
                 end
                 clear selectedLabel restLabel randSample restN RestD
-%                 curCenter = full((E * spdiags(1 ./ sum(E, 1)', 0, k, k))') * fea(indi, :); % compute center of each cluster
             elseif sum(indi) <= k
                 k = min(sum(indi),2);
-%                 [curLabel, curCenter, curSumD] = kmeans(fea(indi, :), k, 'MaxIter', maxIter,'Start', 'uniform');
                 [curLabel, curCenter, ~, curSumD] = litekmeans(fea(indi, :), k, 'MaxIter', maxIter);
             else
-%                 [curLabel, curCenter, curSumD] = kmeans(fea(indi, :), k, 'MaxIter', maxIter,'Start', 'uniform');
                 [curLabel, curCenter, ~, curSumD] = litekmeans(fea(indi, :), k, 'MaxIter', maxIter);
             end
 
