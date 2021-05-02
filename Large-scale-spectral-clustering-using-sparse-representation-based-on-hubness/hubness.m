@@ -5,7 +5,7 @@ function [scores, idcs] = hubness(data, k)
 
     if n <= k
         scores = ones(n, 1);
-        idcs =[];
+        idcs = [];
         return
     end
 

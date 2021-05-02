@@ -1,4 +1,9 @@
 function [label, centers] = DnC_landmark(fea, p, selectN, unit)
+    %DnC_landmark: 
+    %   version 1.0 --April 2021
+    %   Written by Hongmin Li (li.hongmin.xa@alumni.tsukuba.ac.jp)
+    %===========
+
     [n, d] = size(fea);
     if d <100
         distance = @pdist2;

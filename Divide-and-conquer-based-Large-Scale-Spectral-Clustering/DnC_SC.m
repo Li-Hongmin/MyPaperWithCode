@@ -1,4 +1,8 @@
 function labels = DnC_SC(fea, k, p, alpha, knn, maxTcutKmIters,cntTcutKmReps)
+    %DnC_SC: 
+    %   version 1.0 --April 2021
+    %   Written by Hongmin Li (li.hongmin.xa@alumni.tsukuba.ac.jp)
+    %===========
     if nargin < 7
         cntTcutKmReps = 3; 
     end

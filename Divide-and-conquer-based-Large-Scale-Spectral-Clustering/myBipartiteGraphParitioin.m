@@ -1,4 +1,3 @@
-
 function labels = myBipartiteGraphParitioin(B, Nseg, maxKmIters, cntReps)
     % B - |X|-by-|Y|, cross-affinity-matrix
 
@@ -30,30 +29,30 @@ function labels = myBipartiteGraphParitioin(B, Nseg, maxKmIters, cntReps)
 
     % computer eigenvectors
 
-    [evec,eval] = eig(full(nWy)); clear nWy
-    [~,idx] = sort(diag(eval),'descend');
-    Ncut_evec = D*evec(:,idx(1:Nseg)); clear D
+    [evec, eval] = eig(full(nWy)); clear nWy
+    [~, idx] = sort(diag(eval), 'descend');
+    Ncut_evec = D * evec(:, idx(1:Nseg)); clear D
 
     %%% compute the Ncut eigenvectors on the entire bipartite graph (transfer!)
-    evec =  B * Ncut_evec; clear B Dx Ncut_evec
+    evec = B * Ncut_evec; clear B Dx Ncut_evec
 
-%     [evec, eval] = eig(full(nWy)); clear nWy
-%     [eval, idx] = sort(diag(eval), 'descend');
-%     Ncut_evec = D * evec(:, idx(2:Nseg+1)); clear D
-%     lambda = eval(2:Nseg+1);
-%     r = -2*sqrt(1+lambda) -1;
-%     
-% 
-%     %%% compute the Ncut eigenvectors on the entire bipartite graph (transfer!)
-%     evec = Dx * B * Ncut_evec * diag(1./(1-r)); clear B Dx Ncut_evec
+    %     [evec, eval] = eig(full(nWy)); clear nWy
+    %     [eval, idx] = sort(diag(eval), 'descend');
+    %     Ncut_evec = D * evec(:, idx(2:Nseg+1)); clear D
+    %     lambda = eval(2:Nseg+1);
+    %     r = -2*sqrt(1+lambda) -1;
+    %
+    %
+    %     %%% compute the Ncut eigenvectors on the entire bipartite graph (transfer!)
+    %     evec = Dx * B * Ncut_evec * diag(1./(1-r)); clear B Dx Ncut_evec
 
     % normalize each row to unit norm
     evec = bsxfun(@rdivide, evec, sqrt(sum(evec .* evec, 2)) + 1e-10);
 
     % k-means
-%     labels = kmeans(evec,Nseg);
+    %     labels = kmeans(evec,Nseg);
     if maxKmIters > 5
-        labels = kmeans(evec,Nseg,'MaxIter',maxKmIters,'Replicates',cntReps);
+        labels = kmeans(evec, Nseg, 'MaxIter', maxKmIters, 'Replicates', cntReps);
     else
         labels = litekmeans(evec, Nseg, 'MaxIter', maxKmIters, 'Replicates', cntReps);
     end

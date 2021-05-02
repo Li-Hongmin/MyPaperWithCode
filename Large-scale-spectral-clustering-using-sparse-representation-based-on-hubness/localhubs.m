@@ -36,7 +36,7 @@ function [marks, mark_index, scores] = localhubs(x, ...
     indexp = index == 1:num_part;
     p = sum(indexp) / n * num_mark;
     % round values while preserve the sum
-%     p = round_preserve_sum(p);
+    %     p = round_preserve_sum(p);
     p = set_sub_k(p);
 
     % scores computing & mark index from selection
@@ -49,12 +49,12 @@ function [marks, mark_index, scores] = localhubs(x, ...
         local_idx = find(indexp(:, i));
         local_data = x(local_idx, :);
         % hubness scores
-        [local_scores, localidcs]  = hubness(local_data, k);
-%         [local_scores, localidcs] = hubness(local_data, k);
-%         idcs(local_idx, :) = localidcs
-%         for j = 1: r
-%             local_scores = local_scores + sum(local_scores(localidcs), 2);
-%         end
+        [local_scores, localidcs] = hubness(local_data, k);
+        %         [local_scores, localidcs] = hubness(local_data, k);
+        %         idcs(local_idx, :) = localidcs
+        %         for j = 1: r
+        %             local_scores = local_scores + sum(local_scores(localidcs), 2);
+        %         end
         scores(local_idx, :) = local_scores;
 
         % selection
