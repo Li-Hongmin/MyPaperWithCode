@@ -16,11 +16,14 @@ Five real world datasets and five synthetic datasets:
 
 ## Algorithm 
 
-<object data="figs/overview2.pdf" type="application/pdf" width="700px" height="700px">
-    <embed src="figs/overview2.pdf">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="figs/overview2.pdf">Download PDF</a>.</p>
-    </embed>
-</object>
+
+- [Divide-and-conquer based Large-scale Spectral Clustering](DnC_SC.m)
+![figs](figs/overview.jpg "An overview of our method.")
+    - [Divide-and-conquer based Landmark Selection](DnC_landmark)
+    ![figs](figs/dnc_landmark_selection.jpg "An illustration of divide-and-conquer based landmark selection.")
+    <!-- - [light-k-means](figs) -->
+    - Approximate K-nearest landmarks method (line 35~62 of [DnC_SC](DnC_SC.m))
+    ![figs](figs/aknn.jpg "An approximate K-nearest landmarks method.")
 
 ## Code 
 

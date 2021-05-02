@@ -1,4 +1,4 @@
-function labels = DnC_SC(fea, k, p, u, knn, maxTcutKmIters,cntTcutKmReps)
+function labels = DnC_SC(fea, k, p, alpha, knn, maxTcutKmIters,cntTcutKmReps)
     if nargin < 7
         cntTcutKmReps = 3; 
     end
@@ -11,16 +11,16 @@ function labels = DnC_SC(fea, k, p, u, knn, maxTcutKmIters,cntTcutKmReps)
     if nargin < 4
         % The number of up-bounder of DnC-keams
         if (size(fea,1) > 1000000)
-            u = 50;
+            alpha = 50;
         else
-            u = 200;
+            alpha = 200;
         end
     end
     if nargin < 3
         p = 1000; % number of representatives
     end
 
-    %% parameters:
+    %% distance computation for different dimensions
     [n,m] = size(fea);
     if m <100
         distance = @pdist2;
@@ -30,7 +30,7 @@ function labels = DnC_SC(fea, k, p, u, knn, maxTcutKmIters,cntTcutKmReps)
         
 
     %% divide
-    [fea_idx, RpFea] = DnC_landmark(fea, p, 10*p, u);
+    [fea_idx, RpFea] = DnC_landmark(fea, p, 10*p, alpha);
 
     %% The condidate neighborhood size.
     Knn = 10 * knn;

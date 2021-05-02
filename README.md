@@ -2,7 +2,7 @@
 
 I will share code and datasets used in my papers here.
 
-- [Divide-and-conquer based Large-Scale Spectral Clustering](/DnC-SC/README.md)
+- [Divide-and-conquer based Large-Scale Spectral Clustering](/DnC-SC/README.md): Submitting.
 
 ---
 

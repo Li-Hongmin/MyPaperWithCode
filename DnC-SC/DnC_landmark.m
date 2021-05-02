@@ -30,6 +30,8 @@ function [label, centers] = DnC_landmark(fea, p, selectN, unit)
 
             if curN > selectN
 
+                % light-k-means
+
                 % random sampling
                 randSample = false(1, curN);
                 randSample(randperm(curN, selectN)) = true;
