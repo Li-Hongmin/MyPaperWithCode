@@ -17,7 +17,7 @@ function labels = DnC_SC(fea, k, p, alpha, knn, maxTcutKmIters,cntTcutKmReps)
         end
     end
     if nargin < 3
-        p = 1000; % number of representatives
+        p = 1000; % number of landmarks
     end
 
     %% distance computation for different dimensions
@@ -46,7 +46,7 @@ function labels = DnC_SC(fea, k, p, alpha, knn, maxTcutKmIters,cntTcutKmReps)
     clear LdFeaW temp
 
     %% partital pairwise distance matrix
-    % only compute possible nearest representative
+    % only compute possible nearest landmarks
     
     [LdFeaKnnDist, LdFeaKnnIdxFull] = myKNN(fea, LdFea, Knn, fea_idx, LdKnnIdx);
     
@@ -64,7 +64,6 @@ function labels = DnC_SC(fea, k, p, alpha, knn, maxTcutKmIters,cntTcutKmReps)
     clear knnTmpIdx temp LdFeaKnnIdxFull LdFeaKnnDist
 
     %% Gaussian kernal
-    
     knnMeanDiff = mean(knnDist, 'all'); % use the mean distance as the kernel parameter $\sigma$
     Gsdx = exp(-(knnDist.^2)/ (2 * knnMeanDiff^2)); clear knnDist knnMeanDiff
     Gsdx(Gsdx == 0) = eps;

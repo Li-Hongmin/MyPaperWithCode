@@ -7,17 +7,17 @@ function [label, centers] = DnC_landmark(fea, p, selectN, unit)
     end
     centers = zeros(p, d);
     sumD = ones(p, 1);
-    obtainedClusters = 1;
+    obtainedSubsets = 1;
     label = ones(n, 1);
     warning off
     maxIter = 10;
-    while obtainedClusters < p
+    while obtainedSubsets < p
         labelNew = label;
-        ks = full(sumD(1:obtainedClusters));
+        ks = full(sumD(1:obtainedSubsets));
         ks = set_sub_k(ks / sum(ks) * p);
         ks(ks > unit) = unit;
 
-        for i = 1:obtainedClusters
+        for i = 1:obtainedSubsets
 
             k = ks(i);
 
@@ -64,20 +64,20 @@ function [label, centers] = DnC_landmark(fea, p, selectN, unit)
             % modify the local label and insert it into global one
             remainLabelIdx = curLabel == 1;
             curLabel(remainLabelIdx) = i;
-            curLabel(~remainLabelIdx) = curLabel(~remainLabelIdx) + obtainedClusters -1;
+            curLabel(~remainLabelIdx) = curLabel(~remainLabelIdx) + obtainedSubsets -1;
             labelNew(indi) = curLabel;
             clear indi remainLabelIndx curLabel
             
             % insert centers and sumD into global one
             centers(i, :) = curCenter(1, :);
-            centers(obtainedClusters + 1:obtainedClusters + k - 1, :) = curCenter(2:k, :);
+            centers(obtainedSubsets + 1:obtainedSubsets + k - 1, :) = curCenter(2:k, :);
             clear curCenter
             sumD(i) = curSumD(1);
-            sumD(obtainedClusters + 1:obtainedClusters + k - 1) = curSumD(2:k);
+            sumD(obtainedSubsets + 1:obtainedSubsets + k - 1) = curSumD(2:k);
             clear curSumD
 
             % count obtained clusters
-            obtainedClusters = obtainedClusters + k -1;
+            obtainedSubsets = obtainedSubsets + k -1;
         end
 
         label = labelNew;
