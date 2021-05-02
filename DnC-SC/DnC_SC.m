@@ -30,38 +30,38 @@ function labels = DnC_SC(fea, k, p, alpha, knn, maxTcutKmIters,cntTcutKmReps)
         
 
     %% divide
-    [fea_idx, RpFea] = DnC_landmark(fea, p, 10*p, alpha);
+    [fea_idx, LdFea] = DnC_landmark(fea, p, 10*p, alpha);
 
     %% The condidate neighborhood size.
     Knn = 10 * knn;
-    RpFeaW = distance(RpFea, RpFea);
-    RpFeaW = RpFeaW + 1e100*eye(p);
-    RpKnnIdx = zeros(p, Knn);
+    LdFeaW = distance(LdFea, LdFea);
+    LdFeaW = LdFeaW + 1e100*eye(p);
+    LdKnnIdx = zeros(p, Knn);
     
     for i = 1:Knn
-        [~, RpKnnIdx(:, i)] = min(RpFeaW, [], 2);
-        temp = (RpKnnIdx(:, i) - 1) * p + (1:p)';
-        RpFeaW(temp) = 1e100;
+        [~, LdKnnIdx(:, i)] = min(LdFeaW, [], 2);
+        temp = (LdKnnIdx(:, i) - 1) * p + (1:p)';
+        LdFeaW(temp) = 1e100;
     end
-    clear RpFeaW temp
+    clear LdFeaW temp
 
     %% partital pairwise distance matrix
     % only compute possible nearest representative
     
-    [RpFeaKnnDist, RpFeaKnnIdxFull] = myKNN(fea, RpFea, Knn, fea_idx, RpKnnIdx);
+    [LdFeaKnnDist, LdFeaKnnIdxFull] = myKNN(fea, LdFea, Knn, fea_idx, LdKnnIdx);
     
-    clear fea RpFea fea_idx RpFeaKnnIdx
+    clear fea LdFea fea_idx LdFeaKnnIdx
 
     [knnDist, knnTmpIdx, knnIdx] = deal(zeros(n, knn));
 
     for i = 1:knn
-        [knnDist(:, i), knnTmpIdx(:, i)] = min(RpFeaKnnDist, [], 2);
+        [knnDist(:, i), knnTmpIdx(:, i)] = min(LdFeaKnnDist, [], 2);
         temp = (knnTmpIdx(:, i) - 1) * n + (1:n)';
-        RpFeaKnnDist(temp) = 1e100;
-        knnIdx(:, i) = RpFeaKnnIdxFull(temp);
+        LdFeaKnnDist(temp) = 1e100;
+        knnIdx(:, i) = LdFeaKnnIdxFull(temp);
     end
 
-    clear knnTmpIdx temp nearestRepInRpFeaIdx RpFeaKnnIdxFull RpFeaKnnDist
+    clear knnTmpIdx temp LdFeaKnnIdxFull LdFeaKnnDist
 
     %% Gaussian kernal
     
@@ -70,7 +70,7 @@ function labels = DnC_SC(fea, k, p, alpha, knn, maxTcutKmIters,cntTcutKmReps)
     Gsdx(Gsdx == 0) = eps;
     Gidx = repmat((1:n)', 1, knn);
     B = sparse(Gidx(:), knnIdx(:), Gsdx(:), n, p); clear Gsdx Gidx knnIdx
-    % If a representative is not connected to any objects, then it will be removed.
+    % If any landmark is not connected to any objects, then it will be removed.
     B(:, sum(B) == 0) = [];
     
 
