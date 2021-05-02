@@ -2,7 +2,7 @@
 
 This repository is for the replication of our published paper Large scale spectral clustering using sparse representation based on hubness on [CBDCom 2018](https://doi.org/10.1109/SmartWorld.2018.00293). 
 
-You also can find our paper [here](Large-scale-spectral-clustering-using-sparse-representation-based-on-hubness.pdf).
+<!-- You also can find our paper [here](Large-scale-spectral-clustering-using-sparse-representation-based-on-hubness.pdf). -->
 
 
 ## Algorithm 

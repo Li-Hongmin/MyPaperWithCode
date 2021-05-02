@@ -6,10 +6,9 @@ I will share code and datasets used in my papers here.
 
 - [Large scale spectral clustering using sparse representation based on hubness](/Large-scale-spectral-clustering-using-sparse-representation-based-on-hubness/README.md): Published in CBDCom 2018.
 
----Ensemble Learning for Spectral Clustering ICMD 2020
+---
 
 ## To do 
-
 
 [ ] Ensemble Learning for Spectral Clustering [ICMD 2020](https://doi.org/10.1109/ICDM50108.2020.00131)
 
