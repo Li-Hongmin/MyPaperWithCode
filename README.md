@@ -2,7 +2,11 @@
 
 I will share code and datasets used in my papers here.
 
-- [Divide-and-conquer based Large-Scale Spectral Clustering](/Divide-and-conquer-based-Large-Scale-Spectral-Clustering/README.md): Submitting.
+- [Divide-and-conquer based Large-Scale Spectral Clustering](/Divide-and-conquer-based-Large-Scale-Spectral-Clustering/README.md): Submitting to neurocompution.
+    [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/divide-and-conquer-based-large-scale-spectral/image-document-clustering-on-pendigits)](https://paperswithcode.com/sota/image-document-clustering-on-pendigits?p=divide-and-conquer-based-large-scale-spectral)
+    [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/divide-and-conquer-based-large-scale-spectral/image-clustering-on-pendigits)](https://paperswithcode.com/sota/image-clustering-on-pendigits?p=divide-and-conquer-based-large-scale-spectral)
+    [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/divide-and-conquer-based-large-scale-spectral/image-clustering-on-usps)](https://paperswithcode.com/sota/image-clustering-on-usps?p=divide-and-conquer-based-large-scale-spectral)
+
 
 
 - [Ensemble Learning for Spectral Clustering](Ensemble-Learning-for-Spectral-Clustering/README.md): Published in ICMD 2020.
