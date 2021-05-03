@@ -1,11 +1,11 @@
 %% read data
-load 'Datasets/twomoons-1M.mat'
+load 'Datasets/TM_1M.mat'
 %% run DnC-SC clustering
-k = length(unique(y));
+k = length(unique(gnd));
 tic;
-labels = DnC_SC(X, k);
+labels = DnC_SC(fea, k);
 toc
 %% show results
 addpath('../utils/')
-acc = metric_acc(y, labels)
-nmi = metric_nmi(y, labels)
+acc = metric_acc(gnd, labels)
+nmi = metric_nmi(gnd, labels)

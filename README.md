@@ -6,9 +6,6 @@ I will share code and datasets used in my papers here.
 
 
 - [Ensemble Learning for Spectral Clustering](Ensemble-Learning-for-Spectral-Clustering/README.md): Published in ICMD 2020.
-    [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/ensemble-learning-for-spectral-clustering/image-document-clustering-on-jaffe)](https://paperswithcode.com/sota/image-document-clustering-on-jaffe?p=ensemble-learning-for-spectral-clustering)
-    [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/ensemble-learning-for-spectral-clustering/image-document-clustering-on-pixraw10p)](https://paperswithcode.com/sota/image-document-clustering-on-pixraw10p?p=ensemble-learning-for-spectral-clustering)
-    [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/ensemble-learning-for-spectral-clustering/image-document-clustering-on-wine)](https://paperswithcode.com/sota/image-document-clustering-on-wine?p=ensemble-learning-for-spectral-clustering)
 
 - [Large scale spectral clustering using sparse representation based on hubness](/Large-scale-spectral-clustering-using-sparse-representation-based-on-hubness/README.md): Published in CBDCom 2018.
     - Best paper award
