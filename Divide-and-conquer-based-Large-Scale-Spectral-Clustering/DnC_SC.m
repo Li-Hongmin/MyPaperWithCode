@@ -74,7 +74,7 @@ function labels = DnC_SC(fea, k, p, alpha, knn, maxTcutKmIters,cntTcutKmReps)
     Gidx = repmat((1:n)', 1, knn);
     B = sparse(Gidx(:), knnIdx(:), Gsdx(:), n, p); clear Gsdx Gidx knnIdx
     % If any landmark is not connected to any objects, then it will be removed.
-    B(:, sum(B) == 0) = [];
+%     B(:, sum(B) == 0) = [];
     
 
     %% T cut
