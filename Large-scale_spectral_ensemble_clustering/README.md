@@ -21,7 +21,7 @@ You can find our paper in [ArXiv.org](https://arxiv.org/abs/2106.09852).
 
 - [Divide-and-conquer based Large-scale Spectral Clustering](LSEC.m)
 
-![figs](figs/overview3.jpg "An overview of our method.")
+![figs](figs/overview3.jpg) "An overview of our method."
 
 # Reference
 If you find this code useful for your research, please cite
