@@ -20,6 +20,8 @@ I will share code and datasets used in my papers here.
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/ensemble-learning-for-spectral-clustering/image-document-clustering-on-warppie10p)](https://paperswithcode.com/sota/image-document-clustering-on-warppie10p?p=ensemble-learning-for-spectral-clustering)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/ensemble-learning-for-spectral-clustering/image-document-clustering-on-wine)](https://paperswithcode.com/sota/image-document-clustering-on-wine?p=ensemble-learning-for-spectral-clustering)
 
+- [Distributed Collaborative Feature Selection Based on Intermediate Representation](/Distributed_Collaborative_FeatureSelection_Based_on_Intermediate_Representation/README.md): Published in IJCAI 2019.
+
 - [Large scale spectral clustering using sparse representation based on hubness](/Large-scale-spectral-clustering-using-sparse-representation-based-on-hubness/README.md): Published in CBDCom 2018.
     - Best paper award
 ---
